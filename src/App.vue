@@ -15,13 +15,12 @@
     ></v-slide-y-transition>
 
     <NavigationBar />
-    <ProgressIndicator />
 
     <v-main>
       <div
-        data-scrollbar
         id="scrolling-techniques-4"
         style="height: 100vh; overflow-x: hidden; background-color: #2d2109"
+        @scroll="updateProgressIndicator()"
       >
         <router-view />
         <div
@@ -42,29 +41,47 @@
 
 <script>
 import NavigationBar from "./components/NavigationBar.vue";
-import SmoothScrollbar from "smooth-scrollbar";
-import ProgressIndicator from "./components/ProgressIndicator.vue";
+// import SmoothScrollbar from "smooth-scrollbar";
+// import ProgressIndicatorComponent from "./components/ProgressIndicatorComponent.vue";
 
 export default {
   name: "App",
   mounted() {
-    SmoothScrollbar.initAll(this.options);
-    SmoothScrollbar.updatePluginOptions("overscroll", {
-      effect: "glow",
-    });
+    // SmoothScrollbar.initAll(this.options);
+    // SmoothScrollbar.updatePluginOptions("overscroll", {
+    //   effect: "glow",
+    // });
     // setTimeout(() => {
     //   this.isLoading = false;
     // }, 3000);
   },
   components: {
-    ProgressIndicator,
-
     NavigationBar,
   },
   data: () => ({
     options: { damping: 0.04 },
     isLoading: false,
   }),
+  methods: {
+    updateProgressIndicator() {
+      let doc = document.getElementById("scrolling-techniques-4");
+      let windowScroll = doc.scrollTop;
+      let height = doc.scrollHeight - doc.clientHeight;
+
+      this.progressIndicator = (windowScroll / height) * 100;
+    },
+  },
+
+  computed: {
+    progressIndicator: {
+      get() {
+        return this.$store.getters["progress"];
+      },
+      set(val) {
+        this.$store.commit("setProgress", val);
+      },
+    },
+  },
 };
 </script>
 
@@ -87,9 +104,8 @@ nav {
   }
 }
 
-::-webkit-scrollbar-track {
-  background: #2d2109;
-  border: 3px;
+::-webkit-scrollbar {
+  display: none;
 }
 
 html {

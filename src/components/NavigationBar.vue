@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="progress-indicator-wrapper" style="left: 0px">
+      <div class="progress-indicator" :style="`width: ${progress}%`"></div>
+    </div>
     <v-app-bar
       dark
       absolute
@@ -72,6 +75,14 @@ export default {
       },
     ],
   }),
+  watch: {},
+  computed: {
+    progress: {
+      get() {
+        return this.$store.getters["progress"];
+      },
+    },
+  },
 };
 </script>
 
@@ -99,5 +110,18 @@ export default {
 .hover-underline-animation:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.progress-indicator-wrapper {
+  position: fixed;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  top: 0px;
+  .progress-indicator {
+    height: 2px;
+    background: #ffc964;
+  }
+  z-index: 9999999999999;
 }
 </style>
