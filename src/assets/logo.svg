@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M 249.074 37.963 L 420.642227839 120.585903921 L 463.016080761 306.237883831 L 344.287183247 455.119212248 L 153.860816753 455.119212248 L 35.131919239 306.237883831 L 77.505772161 120.585903921 Z" style="fill: rgba(216, 216, 216, 0); stroke: rgb(255, 201, 100); stroke-width: 16px;" bx:shape="n-gon 249.074 257.407 219.444 219.444 7 0 1@319b8f46"/>
+  <text style="fill: rgb(255, 201, 100); font-family: &quot;Source Code Pro&quot;; font-size: 250px; text-transform: uppercase; white-space: pre;" x="107.938" y="331.282">G</text>
+  <text style="fill: rgb(255, 201, 100); font-family: &quot;Source Code Pro&quot;; font-size: 250px; text-transform: capitalize; white-space: pre;" x="241.361" y="329.029">S</text>
+</svg>
