@@ -7,7 +7,7 @@
           position: absolute;
           height: 50vh;
           top: 0;
-          z-index: 99999;
+          z-index: 99;
           width: 100%;
           background-color: black;
         "
@@ -90,7 +90,7 @@ export default {
   font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #665226;
 }
 nav {
@@ -110,5 +110,20 @@ nav {
 
 html {
   overflow: hidden;
+}
+
+#scrolling-techniques-4 {
+  scroll-behavior: smooth;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #090000;
+  background: #574831;
+}
+
+::selection {
+  color: #090000;
+  background: #574831;
 }
 </style>
