@@ -96,7 +96,7 @@
         color="secondary"
         text
         large
-        style="bottom: 0px; right: 0px"
+        style="bottom: 0px; right: 0px; z-index: 0"
         @click="backToTop()"
         ><v-icon :style="launch ? `transform:  rotate(320deg); ` : ``">{{
           launch ? `mdi-rocket-launch` : `mdi-rocket`
