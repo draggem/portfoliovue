@@ -56,7 +56,15 @@
       <h1>Projects</h1>
 
       <v-row>
-        <v-col v-for="(proj, i) in projects" v-bind:key="i" cols="4">
+        <v-col
+          v-for="(proj, i) in projects"
+          v-bind:key="i"
+          lg="3"
+          md="4"
+          sm="6"
+          xs="12"
+          cols="12"
+        >
           <v-hover v-slot="{ hover }"
             ><v-card
               @click="openDialog()"
