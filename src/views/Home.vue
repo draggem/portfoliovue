@@ -5,7 +5,7 @@
       <div class="title">
         <h1
           :style="
-            isMobile() ? `font-size: 2em;color: #ffc964` : `color: #ffc964`
+            isMobile() ? `font-size: 2em;color: #05386B` : `color: #05386B`
           "
         >
           George Somoso.
@@ -132,23 +132,23 @@ export default {
         text: "A full ticketing, tracking and invoicing system full of features to autonomate hardware repair information.",
       },
       {
-        name: "Project Name",
+        name: "Wigram Clouds - Ecommerce",
         text: "The quick brown fox jumps over the lazy dog.",
       },
       {
-        name: "Project Name",
+        name: "RMM",
         text: "The quick brown fox jumps over the lazy dog.",
       },
       {
-        name: "Project Name",
+        name: "Java Payroll [Archive]",
         text: "The quick brown fox jumps over the lazy dog.",
       },
       {
-        name: "Project Name",
+        name: "Java Ufly [Archive]",
         text: "The quick brown fox jumps over the lazy dog.",
       },
       {
-        name: "Project Name",
+        name: "Java Calculator [Archive]",
         text: "The quick brown fox jumps over the lazy dog.",
       },
       {

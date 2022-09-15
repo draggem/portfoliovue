@@ -7,7 +7,7 @@
     <v-app-bar
       dark
       absolute
-      color="rgb(45, 33, 9, 0.9)"
+      color="rgb(92, 219, 149, 0.7)"
       elevate-on-scroll
       hide-on-scroll
       scroll-target="#scrolling-techniques-4"
@@ -28,10 +28,10 @@
         <v-spacer></v-spacer>
         <div v-for="(item, i) in navList" v-bind:key="i">
           <v-card-text style="font-size: 12px" @click="goTo(item.link)">
-            <span style="color: #ffc964">{{ item.num + ". " }}</span>
+            <span style="color: #05386b">{{ item.num + ". " }}</span>
             <v-hover v-slot="{ hover }"
               ><span
-                :style="hover ? 'color: #ffc964' : ''"
+                :style="hover ? 'color: #05386B' : ''"
                 class="hover-underline-animation"
                 >{{ item.text }}</span
               ></v-hover

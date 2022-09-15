@@ -3,15 +3,22 @@
     <v-slide-y-transition
       ><div
         v-if="isLoading"
-        style="
-          position: absolute;
-          height: 50vh;
+        :style="`
+          margin: auto;
+          height: 100vh;
           top: 0;
           z-index: 99;
           width: 100%;
-          background-color: black;
-        "
-      ></div
+          background-color: ${$vuetify.theme.themes.dark.primary};
+        `"
+        class="text-center"
+      >
+        <v-progress-circular
+          style="margin-top: 150px"
+          indeterminate
+          size="80"
+          color="text"
+        ></v-progress-circular></div
     ></v-slide-y-transition>
 
     <NavigationBar />
@@ -19,7 +26,7 @@
     <v-main>
       <div
         id="scrolling-techniques-4"
-        style="height: 100vh; overflow-x: hidden; background-color: #2d2109"
+        style="height: 100vh; overflow-x: hidden; background-color: #5cdb95"
         @scroll="updateProgressIndicator()"
       >
         <router-view />
@@ -51,16 +58,16 @@ export default {
     // SmoothScrollbar.updatePluginOptions("overscroll", {
     //   effect: "glow",
     // });
-    // setTimeout(() => {
-    //   this.isLoading = false;
-    // }, 3000);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
   },
   components: {
     NavigationBar,
   },
   data: () => ({
     options: { damping: 0.04 },
-    isLoading: false,
+    isLoading: true,
   }),
   methods: {
     updateProgressIndicator() {
@@ -91,7 +98,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
-  color: #665226;
+  color: #edf5e1;
 }
 nav {
   padding: 30px;
@@ -99,7 +106,7 @@ nav {
     font-weight: bold;
     color: #2c3e50;
     &.router-link-exact-active {
-      color: #42b983;
+      color: #5cdb95;
     }
   }
 }
