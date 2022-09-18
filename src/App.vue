@@ -22,12 +22,20 @@
       <v-fade-transition>
         <v-img
           src="@/assets/logo.svg"
-          width="300px"
-          :style="`
+          :width="isMobile() ? `80px` : `80px`"
+          :style="
+            isMobile()
+              ? `
           margin: auto;
-          top: 20%;
+          top: 36%;
           z-index: 99;
-        `"
+        `
+              : `
+          margin: auto;
+          top: 40%;
+          z-index: 99;
+        `
+          "
           v-if="imageOn"
         ></v-img>
       </v-fade-transition>
@@ -49,7 +57,7 @@
             margin: auto;
             height: 50px;
             background-color: ${$vuetify.theme.themes.dark.primary};
-
+            
           "
         >
           <v-card-text :style="`color:${$vuetify.theme.themes.dark.accent2}`"
@@ -95,6 +103,9 @@ export default {
     isLoading: true,
   }),
   methods: {
+    isMobile() {
+      return this.$vuetify.breakpoint.width < 600;
+    },
     updateProgressIndicator() {
       let doc = document.getElementById("scrolling-techniques-4");
       let windowScroll = doc.scrollTop;

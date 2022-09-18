@@ -89,7 +89,7 @@
           <v-hover v-slot="{ hover }"
             ><v-card
               @click="openDialog(proj)"
-              color="secondary"
+              color="rgb(31, 40, 51, 0.5)"
               width="100%"
               height="350px"
               :class="
@@ -97,8 +97,11 @@
               "
             >
               <v-card-text style="overflow-wrap: anywhere" class="d-flex"
-                ><v-icon :color="hover ? `text` : ``" large
-                  >mdi-folder-outline</v-icon
+                ><v-icon v-if="proj.link" :color="hover ? `text` : ``" large
+                  >mdi-open-in-new</v-icon
+                >
+                <v-icon v-else :color="hover ? `text` : ``" large
+                  >mdi-book-outline</v-icon
                 >
                 <h2
                   class="ml-3 mt-2"
@@ -151,7 +154,38 @@
             ><v-icon>mdi-close</v-icon></v-btn
           ></v-card-title
         >
-        <v-card-text>{{ this.selectedProject }}</v-card-text>
+        <v-card-text>{{ selectedProject.text }}</v-card-text>
+        <v-card-text
+          >Tools <br />
+          <span v-for="(item, i) in selectedProject.tools" v-bind:key="i">
+            {{ item
+            }}<span v-if="i < selectedProject.tools.length - 1"> -</span></span
+          ></v-card-text
+        >
+        <a class="link" :href="`${selectedProject.link}`" target="_blank">
+          <v-card-text
+            v-if="selectedProject.link"
+            :style="`color: ${$vuetify.theme.themes.dark.accent2}`"
+            ><v-icon size="20" color="accent2">mdi-open-in-new </v-icon>
+            {{ selectedProject.link }}</v-card-text
+          >
+        </a>
+
+        <div class="ma-16">
+          {{ selectedProject.assets[0] }}
+          <video width="70%" height="300" autoplay muted>
+            <source
+              src="@/assets/guardex/guardex_desktop.webm"
+              type="video/webm"
+            />
+          </video>
+          <!-- <video-background
+            src="@/assets/guardex/guardex_mobile.MP4"
+            style="max-height: 400px; height: 100vh"
+          >
+            <h1 style="color: white">Hello welcome!</h1>
+          </video-background> -->
+        </div>
       </v-card>
     </v-dialog>
   </v-container>
@@ -159,6 +193,7 @@
 
 <script>
 import AOS from "aos";
+// import VideoBackground from "vue-responsive-video-background-player";
 // @ is an alias to /src
 
 export default {
@@ -169,6 +204,7 @@ export default {
     projects: [
       {
         name: "Farms Chicken",
+        subText: "Ecommerce site integrated with other platforms.",
         text: "An Ecommerce application built for one of the biggest meat supplier in Christchurch. We also integrated their old SQL based application and also Reckon for Invoicing.",
         tools: [
           "Vue",
@@ -190,21 +226,32 @@ export default {
           "Node",
           "Docker",
         ],
+        assets: [
+          "@/assets/guardex/guardex_desktop.webm",
+          "@/assets/guardex/guardex_mobile.mp4",
+        ],
       },
       {
         name: "CanIT System",
         text: "A full ticketing, tracking and invoicing system full of features to autonomate hardware repair information.",
+        tools: ["Vue", "Amazon Web Services", "Windcave API"],
+      },
+      {
+        name: "Selfserv",
+        text: "A full platform for restaurants and cafes. Includes self-ordering kiosk, staff POS system and super admin management.",
         tools: ["Vue", "Amazon Web Services"],
       },
       {
-        name: "Wigram Clouds - Ecommerce",
-        text: "The quick brown fox jumps over the lazy dog.",
-        tools: ["Vue", "Amazon Web Services"],
+        name: "Wigram Clouds",
+        text: "A vape shop ecommerce site.",
+        tools: ["Vue", "Amazon Web Services", "Stripe"],
+        link: "https://www.wigramclouds.co.nz",
       },
       {
         name: "RMM",
-        text: "The quick brown fox jumps over the lazy dog.",
+        text: "A static site for motel business with a basic CMS.",
         tools: ["Vue", "Amazon Web Services"],
+        link: "https://www.rmm.co.nz",
       },
       {
         name: "Java Payroll",
@@ -234,8 +281,12 @@ export default {
       return this.$vuetify.breakpoint.width < 600;
     },
     openDialog(param) {
-      this.selectedProject = param;
-      this.open = true;
+      if (param.link) {
+        window.open(param.link);
+      } else {
+        this.selectedProject = param;
+        this.open = true;
+      }
     },
     openLink(socialNet) {
       switch (socialNet) {
@@ -270,7 +321,9 @@ export default {
       }, 1000);
     },
   },
-  components: {},
+  components: {
+    // VideoBackground,
+  },
   computed: {
     progress: {
       get() {
@@ -299,5 +352,9 @@ export default {
 }
 .subtitle p {
   font-size: 1.2em;
+}
+
+.link {
+  text-decoration: none;
 }
 </style>
