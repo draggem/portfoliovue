@@ -7,7 +7,7 @@
     <v-app-bar
       dark
       absolute
-      color="rgb(92, 219, 149, 0.7)"
+      color="rgb(11, 12, 16, 0.8)"
       elevate-on-scroll
       hide-on-scroll
       scroll-target="#scrolling-techniques-4"
@@ -28,10 +28,14 @@
         <v-spacer></v-spacer>
         <div v-for="(item, i) in navList" v-bind:key="i">
           <v-card-text style="font-size: 12px" @click="goTo(item.link)">
-            <span style="color: #05386b">{{ item.num + ". " }}</span>
+            <span :style="`color: ${$vuetify.theme.themes.dark.text}`">{{
+              item.num + ". "
+            }}</span>
             <v-hover v-slot="{ hover }"
               ><span
-                :style="hover ? 'color: #05386B' : ''"
+                :style="
+                  hover ? `color: ${$vuetify.theme.themes.dark.text}` : ''
+                "
                 class="hover-underline-animation"
                 >{{ item.text }}</span
               ></v-hover
@@ -44,18 +48,24 @@
           large
           outlined
           @click="openResume()"
-          color="secondary"
+          color="text"
           style="font-size: 12px"
         >
           Resume
         </v-btn>
       </div>
-      <div v-else @click="drawer = !drawer" style="z-index: 20">
+      <div
+        v-else
+        @click="
+          drawer = !drawer;
+          hamActive = !hamActive;
+        "
+        style="z-index: 20"
+      >
         <svg
-          class="ham ham3"
+          :class="hamActive ? `ham ham3 active` : `ham ham3`"
           viewBox="0 0 100 100"
           width="60"
-          onclick="this.classList.toggle('active')"
         >
           <path
             class="line top"
@@ -85,7 +95,10 @@
         >
           <v-row style="height: 105vh">
             <v-col cols="3" style="backdrop-filter: blur(8px)"> </v-col>
-            <v-col cols="9" style="background-color: #422c0a">
+            <v-col
+              cols="9"
+              :style="`background-color: ${$vuetify.theme.themes.dark.primary}`"
+            >
               <div style="width: 100%; margin-top: 200px" class="text-right">
                 <div v-for="(item, i) in navList" v-bind:key="i">
                   <v-card-text
@@ -93,6 +106,7 @@
                     @click="
                       goTo(item.link);
                       drawer = false;
+                      hamActive = !hamActive;
                     "
                   >
                     <span
@@ -130,6 +144,7 @@ export default {
     },
   },
   data: () => ({
+    hamActive: false,
     group: false,
     drawer: false,
     navList: [

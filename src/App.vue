@@ -1,9 +1,8 @@
 <template>
   <v-app>
-    <v-slide-y-transition
-      ><div
-        v-if="isLoading"
-        :style="`
+    <div
+      v-if="isLoading"
+      :style="`
           margin: auto;
           height: 100vh;
           top: 0;
@@ -11,22 +10,35 @@
           width: 100%;
           background-color: ${$vuetify.theme.themes.dark.primary};
         `"
-        class="text-center"
-      >
-        <v-progress-circular
-          style="margin-top: 150px"
-          indeterminate
-          size="80"
-          color="text"
-        ></v-progress-circular></div
-    ></v-slide-y-transition>
+      class="text-center"
+    >
+      <!---ANIMATED LOGO-->
+      <!-- <v-progress-circular
+        style="top: 40%"
+        indeterminate
+        size="80"
+        color="text"
+      ></v-progress-circular> -->
+      <v-fade-transition>
+        <v-img
+          src="@/assets/logo.svg"
+          width="300px"
+          :style="`
+          margin: auto;
+          top: 20%;
+          z-index: 99;
+        `"
+          v-if="imageOn"
+        ></v-img>
+      </v-fade-transition>
+    </div>
 
     <NavigationBar />
 
     <v-main>
       <div
         id="scrolling-techniques-4"
-        style="height: 100vh; overflow-x: hidden; background-color: #5cdb95"
+        :style="`height: 100vh; overflow-x: hidden; background-color: ${$vuetify.theme.themes.dark.primary}`"
         @scroll="updateProgressIndicator()"
       >
         <router-view />
@@ -36,10 +48,16 @@
             width: 100vw;
             margin: auto;
             height: 50px;
-            background-color: goldenrod;
+            background-color: ${$vuetify.theme.themes.dark.primary};
+
           "
         >
-          Footer
+          <v-card-text :style="`color:${$vuetify.theme.themes.dark.accent2}`"
+            >That's All Folks. (for now.. Thanks for visiting!) </v-card-text
+          ><span
+            :style="`color:${$vuetify.theme.themes.dark.accent2}; font-size: 9px`"
+            >Last Updated: September 2022</span
+          >
         </div>
       </div>
     </v-main>
@@ -59,6 +77,12 @@ export default {
     //   effect: "glow",
     // });
     setTimeout(() => {
+      this.imageOn = true;
+      setTimeout(() => {
+        this.imageOn = false;
+      }, 1200);
+    }, 300);
+    setTimeout(() => {
       this.isLoading = false;
     }, 2000);
   },
@@ -66,6 +90,7 @@ export default {
     NavigationBar,
   },
   data: () => ({
+    imageOn: false,
     options: { damping: 0.04 },
     isLoading: true,
   }),
@@ -99,16 +124,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #edf5e1;
-}
-nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #5cdb95;
-    }
-  }
 }
 
 ::-webkit-scrollbar {

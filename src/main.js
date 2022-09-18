@@ -3,6 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
 import store from './store'
+import 'aos/dist/aos.css'
 
 Vue.config.productionTip = false
 
