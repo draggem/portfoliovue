@@ -116,6 +116,17 @@
                     >
                   </v-card-text>
                 </div>
+                <v-btn
+                  class="mt-1 ma-4"
+                  width="38"
+                  large
+                  outlined
+                  @click="openResume()"
+                  color="text"
+                  style="font-size: 12px"
+                >
+                  Resume
+                </v-btn>
               </div>
             </v-col>
           </v-row>
@@ -139,7 +150,8 @@ export default {
     },
     openResume() {
       window.open(
-        "https://drive.google.com/file/d/1Q_ReG9MnDW8u6JISvLiOfOK8Xst5Vkbh/view?usp=sharing"
+        // "https://drive.google.com/file/d/1Q_ReG9MnDW8u6JISvLiOfOK8Xst5Vkbh/view?usp=sharing"
+        "https://docs.google.com/document/d/e/2PACX-1vTdcX4bDLyuzLMoOS-bvY46YepF9gukgmPNQsqcVRKwT1JxvBa1UD6jnkLzaam-sQYA0NlR_DyT7W84/pub"
       );
     },
   },
@@ -158,13 +170,13 @@ export default {
         text: "Projects",
         link: "#proj",
       },
+      // {
+      //   num: "03",
+      //   text: "Work",
+      //   link: "#work",
+      // },
       {
         num: "03",
-        text: "Work",
-        link: "#work",
-      },
-      {
-        num: "04",
         text: "Contact",
         link: "#contact",
       },
