@@ -1,22 +1,32 @@
 <template>
-  <v-container id="top">
-    <section style="height: 100vh" class="pl-2 pr-2">
-      <div :style="isMobile() ? `margin-top: 90px` : `margin-top: 60px`"></div>
-      <div class="title" data-aos="fade-right">
-        <h1
-          :style="
+  <div
+    id="top"
+    :style="isMobile() ?`` :`padding-left: 15vw; padding-right: 15vw`"
+  >
+    <section
+      style="height: 100vh"
+      class="pl-2 pr-2"
+    >
+      <div :style="isMobile() ? `margin-top: 10vh` : `margin-top: 20vh`"></div>
+      <div
+        class="title"
+        data-aos="fade-right"
+      >
+        <h1 :style="
             isMobile()
               ? `font-size: 2em;color: ${$vuetify.theme.themes.dark.accent2}`
               : `color: ${$vuetify.theme.themes.dark.accent2}`
-          "
-        >
-          George Somoso,
+          ">
+          George Somoso
         </h1>
         <h3 :style="`color: ${$vuetify.theme.themes.dark.accent}`">
           Software Developer
         </h3>
-        <div style="position: fixed; top: 0vh; right: 0px" v-if="!isMobile()">
-          <v-img width="300" height="auto" src="@/assets/self.png"></v-img>
+        <div
+          style="position: fixed; top: 0vh; right: 0px"
+          v-if="!isMobile()"
+        >
+          <!-- <v-img width="300" height="auto" src="@/assets/self.png"></v-img> -->
         </div>
       </div>
 
@@ -30,32 +40,37 @@
         data-aos="fade-left"
       >
         <p>
-          I'm a full stack software developer specialising in building variety
-          of software that will satisfy client needs. Most of my projects have
-          been full on digital experience, such as Websites and PWA, Mobile,
-          API's and more...
+          Accomplished software developer with over 2 years of experience in development of applications. Excels in software development, including design creation, coding, debugging, testing, and maintenance. Experience in devising innovative and tailored solutions to assist businesses achieve their goals in a variety of industries. Developed skills and knowledge of leading programming tools.
         </p>
       </div>
       <div
-        class="pb-6 pt-12"
         :style="`color:${$vuetify.theme.themes.dark.accent2}`"
         data-aos="fade-up"
         data-aos-delay="700"
       >
         <h3>You can also visit me at</h3>
-        <v-icon large color="accent2" class="pa-2" @click="openLink('linkedin')"
-          >mdi-linkedin</v-icon
-        >
-        <v-icon large color="accent2" class="pa-2" @click="openLink('github')"
-          >mdi-github</v-icon
-        >
+        <v-icon
+          large
+          color="accent2"
+          class="pa-2"
+          @click="openLink('linkedin')"
+        >mdi-linkedin</v-icon>
+        <v-icon
+          large
+          color="accent2"
+          class="pa-2"
+          @click="openLink('github')"
+        >mdi-github</v-icon>
 
         <!-- <v-icon large color="accent2" class="pa-2" @click="() => {}"
           >mdi-codepen</v-icon
         > -->
-        <v-icon large color="accent2" class="pa-2" @click="openLink('insta')"
-          >mdi-instagram</v-icon
-        >
+        <v-icon
+          large
+          color="accent2"
+          class="pa-2"
+          @click="openLink('insta')"
+        >mdi-instagram</v-icon>
         <!-- <v-icon large color="accent2" class="pa-2" @click="() => {}"
           >mdi-twitter</v-icon
         > -->
@@ -68,11 +83,13 @@
         data-aos="fade-up"
         data-aos-delay="1000"
       >
-        View My Work</v-btn
-      >
+        View My Work</v-btn>
     </section>
 
-    <section id="proj" class="projects">
+    <section
+      id="proj"
+      class="projects"
+    >
       <div class="pt-16"></div>
       <h1>Featured Projects</h1>
 
@@ -80,14 +97,14 @@
         <v-col
           v-for="(proj, i) in featured_projects"
           v-bind:key="i"
-          lg="3"
-          md="4"
+          lg="4"
+          md="6"
           sm="6"
           xs="12"
           cols="12"
         >
-          <v-hover v-slot="{ hover }"
-            ><v-card
+          <v-hover v-slot="{ hover }">
+            <v-card
               @click="openDialog(proj)"
               color="rgb(31, 40, 51, 0.5)"
               width="100%"
@@ -96,13 +113,20 @@
                 hover ? `elevation-5 transition-swing` : `mt-3 transition-swing`
               "
             >
-              <v-card-text style="overflow-wrap: anywhere" class="d-flex"
-                ><v-icon v-if="proj.link" :color="hover ? `text` : ``" large
-                  >mdi-open-in-new</v-icon
-                >
-                <v-icon v-else :color="hover ? `text` : ``" large
-                  >mdi-book-outline</v-icon
-                >
+              <v-card-text
+                style="overflow-wrap: anywhere"
+                class="d-flex"
+              >
+                <v-icon
+                  v-if="proj.link"
+                  :color="hover ? `text` : ``"
+                  large
+                >mdi-open-in-new</v-icon>
+                <v-icon
+                  v-else
+                  :color="hover ? `text` : ``"
+                  large
+                >mdi-book-outline</v-icon>
                 <h2
                   class="ml-3 mt-2"
                   :style="
@@ -110,22 +134,24 @@
                   "
                 >
                   {{ proj.name }}
-                </h2></v-card-text
-              >
+                </h2>
+              </v-card-text>
               <v-card-text
                 class="mt-6"
                 :style="
                   hover ? `color: ${$vuetify.theme.themes.dark.text}` : ''
                 "
-                >{{ proj.text }}</v-card-text
-              >
-            </v-card></v-hover
-          >
+              >{{ proj.text }}</v-card-text>
+            </v-card>
+          </v-hover>
         </v-col>
       </v-row>
     </section>
 
-    <section id="proj" class="projects">
+    <section
+      id="proj"
+      class="projects"
+    >
       <div class="pt-16"></div>
       <h1>Noteworthy and Archived Projects</h1>
 
@@ -139,8 +165,8 @@
           xs="12"
           cols="12"
         >
-          <v-hover v-slot="{ hover }"
-            ><v-card
+          <v-hover v-slot="{ hover }">
+            <v-card
               @click="openDialog(proj)"
               color="rgb(31, 40, 51, 0.5)"
               width="100%"
@@ -149,18 +175,26 @@
                 hover ? `elevation-5 transition-swing` : `mt-3 transition-swing`
               "
             >
-              <v-card-text style="overflow-wrap: anywhere" class="d-flex"
-                ><v-icon v-if="proj.link" :color="hover ? `text` : ``" large
-                  >mdi-open-in-new</v-icon
-                >
+              <v-card-text
+                style="overflow-wrap: anywhere"
+                class="d-flex"
+              >
+                <v-icon
+                  v-if="proj.link"
+                  :color="hover ? `text` : ``"
+                  large
+                >mdi-open-in-new</v-icon>
                 <div v-else>
-                  <v-icon :color="hover ? `text` : ``" large
-                    >mdi-book-outline</v-icon
-                  >
+                  <v-icon
+                    :color="hover ? `text` : ``"
+                    large
+                  >mdi-book-outline</v-icon>
 
-                  <v-icon v-if="proj.github" :color="hover ? `text` : ``" large
-                    >mdi-github</v-icon
-                  >
+                  <v-icon
+                    v-if="proj.github"
+                    :color="hover ? `text` : ``"
+                    large
+                  >mdi-github</v-icon>
                 </div>
 
                 <h2
@@ -170,17 +204,16 @@
                   "
                 >
                   {{ proj.name }}
-                </h2></v-card-text
-              >
+                </h2>
+              </v-card-text>
               <v-card-text
                 class="mt-6"
                 :style="
                   hover ? `color: ${$vuetify.theme.themes.dark.text}` : ''
                 "
-                >{{ proj.text }}</v-card-text
-              >
-            </v-card></v-hover
-          >
+              >{{ proj.text }}</v-card-text>
+            </v-card>
+          </v-hover>
         </v-col>
       </v-row>
     </section>
@@ -195,7 +228,8 @@
         large
         style="bottom: 0px; right: 0px; z-index: 0"
         @click="backToTop()"
-        ><v-icon :style="launch ? `transform:  rotate(320deg); ` : ``">{{
+      >
+        <v-icon :style="launch ? `transform:  rotate(320deg); ` : ``">{{
           launch ? `mdi-rocket-launch` : `mdi-rocket`
         }}</v-icon>
       </v-btn>
@@ -216,21 +250,27 @@
         <v-card-title
           :style="`position: absolute; top:0;width: 100%; background-color: ${$vuetify.theme.themes.dark.secondary}`"
           class="elevation-2"
-          >{{ selectedProject.name }} <v-spacer></v-spacer>
-          <v-btn @click="open = false" text
-            ><v-icon>mdi-close</v-icon></v-btn
-          ></v-card-title
+        >{{ selectedProject.name }} <v-spacer></v-spacer>
+          <v-btn
+            @click="open = false"
+            text
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-card-title>
+        <v-container
+          class="pt-16"
+          style="height: 100%; overflow-y: scroll"
         >
-        <v-container class="pt-16" style="height: 100%; overflow-y: scroll">
-          <v-card-text
-            >Tools Used<br />
-            <span v-for="(item, i) in selectedProject.tools" v-bind:key="i">
+          <v-card-text>Tools Used<br />
+            <span
+              v-for="(item, i) in selectedProject.tools"
+              v-bind:key="i"
+            >
               {{ item
               }}<span v-if="i < selectedProject.tools.length - 1">
-                -</span
-              ></span
-            ></v-card-text
-          >
+                -</span></span>
+          </v-card-text>
           <div
             v-if="selectedProject.github"
             class="ml-6 mr-6"
@@ -238,7 +278,10 @@
             style="cursor: pointer"
           >
             <v-icon>mdi-github</v-icon>
-            <b style="font-size: 12px; color: white" class="ml-2">{{
+            <b
+              style="font-size: 12px; color: white"
+              class="ml-2"
+            >{{
               selectedProject.github
             }}</b>
             ←
@@ -246,8 +289,13 @@
           </div>
           <v-card-text>{{ selectedProject.paragraph1 }}</v-card-text>
           <v-row v-if="selectedProject.mobile_asset1">
-            <v-col lg="2" md="2" sm="2" cols="12" class="text-center"
-              ><video
+            <v-col
+              lg="2"
+              md="2"
+              sm="2"
+              cols="12"
+              class="text-center"
+            ><video
                 id="mobile_asset1"
                 :width="isMobile() ? `60%` : `auto`"
                 :height="isMobile() ? `auto` : `200px`"
@@ -259,14 +307,19 @@
                 <source
                   :src="selectedProject.mobile_asset1.src"
                   :type="`video/${selectedProject.mobile_asset1.type}`"
-                /></video
-            ></v-col>
+                />
+              </video></v-col>
 
-            <v-col lg="10" md="10" sm="10" cols="12"
-              ><v-card-text>{{
-                selectedProject.paragraph_mobile
-              }}</v-card-text></v-col
+            <v-col
+              lg="10"
+              md="10"
+              sm="10"
+              cols="12"
             >
+              <v-card-text>{{
+                selectedProject.paragraph_mobile
+              }}</v-card-text>
+            </v-col>
           </v-row>
 
           <video
@@ -295,22 +348,34 @@
           ></v-img>
 
           <div v-if="selectedProject.image1">
-            <v-row
-              ><v-col cols="12" lg="6" md="6" sm="12"
-                ><v-img
+            <v-row>
+              <v-col
+                cols="12"
+                lg="6"
+                md="6"
+                sm="12"
+              >
+                <v-img
                   v-if="selectedProject.image1"
                   :src="selectedProject.image1.src"
                   :width="isMobile() ? `100%` : `100%`"
                   :class="!isMobile() ? `ml-6` : ``"
-                ></v-img></v-col
-              ><v-col cols="12" lg="6" md="6" sm="12"
-                ><v-img
+                ></v-img>
+              </v-col>
+              <v-col
+                cols="12"
+                lg="6"
+                md="6"
+                sm="12"
+              >
+                <v-img
                   v-if="selectedProject.image2"
                   :src="selectedProject.image2.src"
                   :width="isMobile() ? `100%` : `100%`"
                   :class="!isMobile() ? `ml-6` : ``"
-                ></v-img></v-col
-            ></v-row>
+                ></v-img>
+              </v-col>
+            </v-row>
           </div>
 
           <v-card-text>{{ selectedProject.paragraph3 }}</v-card-text>
@@ -330,18 +395,26 @@
             />
           </video>
 
-          <a class="link" :href="`${selectedProject.link}`" target="_blank">
+          <a
+            class="link"
+            :href="`${selectedProject.link}`"
+            target="_blank"
+          >
             <v-card-text
               v-if="selectedProject.link"
               :style="`color: ${$vuetify.theme.themes.dark.accent2}`"
-              ><v-icon size="20" color="accent2">mdi-open-in-new </v-icon>
-              {{ selectedProject.link }}</v-card-text
             >
+              <v-icon
+                size="20"
+                color="accent2"
+              >mdi-open-in-new </v-icon>
+              {{ selectedProject.link }}
+            </v-card-text>
           </a>
         </v-container>
       </v-card>
     </v-dialog>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -609,7 +682,7 @@ export default {
   max-width: 50vw;
 }
 .subtitle p {
-  font-size: 1.2em;
+  font-size: 20px;
 }
 
 .link {
