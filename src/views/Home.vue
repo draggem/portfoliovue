@@ -38,7 +38,7 @@
       >
         <p>
           Accomplished software developer with nearly
-          {{ new Date().getFullYear() - 2019 }} years of experience in
+          {{ new Date().getFullYear() - 2018 }} years of experience in
           development of applications. Excels in software development, including
           design creation, coding, debugging, testing, and maintenance.
           Experience in devising innovative and tailored solutions to assist
