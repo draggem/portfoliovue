@@ -94,22 +94,28 @@
           "
         >
           <v-row style="height: 105vh">
-            <v-col cols="3" style="backdrop-filter: blur(8px)"> </v-col>
+            <v-col
+              cols="3"
+              style="backdrop-filter: blur(8px)"
+              @click="
+                drawer = false;
+                hamActive = !hamActive;
+              "
+            >
+            </v-col>
             <v-col
               cols="9"
               :style="`background-color: ${$vuetify.theme.themes.dark.primary}`"
             >
               <div style="width: 100%; margin-top: 200px" class="text-right">
                 <div v-for="(item, i) in navList" v-bind:key="i">
-                  <v-card-text
-                    style="font-size: 20px"
-                    @click="
-                      goTo(item.link);
-                      drawer = false;
-                      hamActive = !hamActive;
-                    "
-                  >
+                  <v-card-text style="font-size: 20px">
                     <span
+                      @click="
+                        goTo(item.link);
+                        drawer = false;
+                        hamActive = !hamActive;
+                      "
                       style="color: #ffc964"
                       class="hover-underline-animation"
                       >{{ item.text }}</span

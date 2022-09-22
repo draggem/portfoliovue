@@ -1,31 +1,28 @@
 <template>
   <div
     id="top"
-    :style="isMobile() ?`` :`padding-left: 15vw; padding-right: 15vw`"
+    :style="
+      isMobile()
+        ? `padding-left: 5vw; padding-right: 5vw`
+        : `padding-left: 15vw; padding-right: 15vw`
+    "
   >
-    <section
-      style="height: 100vh"
-      class="pl-2 pr-2"
-    >
+    <section style="height: 100vh" class="pl-2 pr-2">
       <div :style="isMobile() ? `margin-top: 10vh` : `margin-top: 20vh`"></div>
-      <div
-        class="title"
-        data-aos="fade-right"
-      >
-        <h1 :style="
+      <div class="title" data-aos="fade-right">
+        <h1
+          :style="
             isMobile()
               ? `font-size: 2em;color: ${$vuetify.theme.themes.dark.accent2}`
               : `color: ${$vuetify.theme.themes.dark.accent2}`
-          ">
+          "
+        >
           George Somoso
         </h1>
         <h3 :style="`color: ${$vuetify.theme.themes.dark.accent}`">
           Software Developer
         </h3>
-        <div
-          style="position: fixed; top: 0vh; right: 0px"
-          v-if="!isMobile()"
-        >
+        <div style="position: fixed; top: 0vh; right: 0px" v-if="!isMobile()">
           <!-- <v-img width="300" height="auto" src="@/assets/self.png"></v-img> -->
         </div>
       </div>
@@ -40,42 +37,40 @@
         data-aos="fade-left"
       >
         <p>
-          Accomplished software developer with over 2 years of experience in development of applications. Excels in software development, including design creation, coding, debugging, testing, and maintenance. Experience in devising innovative and tailored solutions to assist businesses achieve their goals in a variety of industries. Developed skills and knowledge of leading programming tools.
+          Accomplished software developer with over 2 years of experience in
+          development of applications. Excels in software development, including
+          design creation, coding, debugging, testing, and maintenance.
+          Experience in devising innovative and tailored solutions to assist
+          businesses achieve their goals in a variety of industries. Developed
+          skills and knowledge of leading programming tools.
         </p>
       </div>
       <div
         :style="`color:${$vuetify.theme.themes.dark.accent2}`"
         data-aos="fade-up"
         data-aos-delay="700"
+        class="mt-3"
       >
         <h3>You can also visit me at</h3>
-        <v-icon
-          large
-          color="accent2"
-          class="pa-2"
-          @click="openLink('linkedin')"
-        >mdi-linkedin</v-icon>
-        <v-icon
-          large
-          color="accent2"
-          class="pa-2"
-          @click="openLink('github')"
-        >mdi-github</v-icon>
+        <v-icon large color="accent2" class="pa-2" @click="openLink('linkedin')"
+          >mdi-linkedin</v-icon
+        >
+        <v-icon large color="accent2" class="pa-2" @click="openLink('github')"
+          >mdi-github</v-icon
+        >
 
         <!-- <v-icon large color="accent2" class="pa-2" @click="() => {}"
           >mdi-codepen</v-icon
         > -->
-        <v-icon
-          large
-          color="accent2"
-          class="pa-2"
-          @click="openLink('insta')"
-        >mdi-instagram</v-icon>
+        <v-icon large color="accent2" class="pa-2" @click="openLink('insta')"
+          >mdi-instagram</v-icon
+        >
         <!-- <v-icon large color="accent2" class="pa-2" @click="() => {}"
           >mdi-twitter</v-icon
         > -->
       </div>
       <v-btn
+        class="mt-3"
         @click="toProj()"
         outlined
         color="accent2"
@@ -83,13 +78,11 @@
         data-aos="fade-up"
         data-aos-delay="1000"
       >
-        View My Work</v-btn>
+        View My Work</v-btn
+      >
     </section>
 
-    <section
-      id="proj"
-      class="projects"
-    >
+    <section id="proj" class="projects">
       <div class="pt-16"></div>
       <h1>Featured Projects</h1>
 
@@ -113,20 +106,13 @@
                 hover ? `elevation-5 transition-swing` : `mt-3 transition-swing`
               "
             >
-              <v-card-text
-                style="overflow-wrap: anywhere"
-                class="d-flex"
-              >
-                <v-icon
-                  v-if="proj.link"
-                  :color="hover ? `text` : ``"
-                  large
-                >mdi-open-in-new</v-icon>
-                <v-icon
-                  v-else
-                  :color="hover ? `text` : ``"
-                  large
-                >mdi-book-outline</v-icon>
+              <v-card-text style="overflow-wrap: anywhere" class="d-flex">
+                <v-icon v-if="proj.link" :color="hover ? `text` : ``" large
+                  >mdi-open-in-new</v-icon
+                >
+                <v-icon v-else :color="hover ? `text` : ``" large
+                  >mdi-book-outline</v-icon
+                >
                 <h2
                   class="ml-3 mt-2"
                   :style="
@@ -141,17 +127,15 @@
                 :style="
                   hover ? `color: ${$vuetify.theme.themes.dark.text}` : ''
                 "
-              >{{ proj.text }}</v-card-text>
+                >{{ proj.text }}</v-card-text
+              >
             </v-card>
           </v-hover>
         </v-col>
       </v-row>
     </section>
 
-    <section
-      id="proj"
-      class="projects"
-    >
+    <section id="proj" class="projects">
       <div class="pt-16"></div>
       <h1>Noteworthy and Archived Projects</h1>
 
@@ -159,8 +143,8 @@
         <v-col
           v-for="(proj, i) in noteworthy_projects"
           v-bind:key="i"
-          lg="3"
-          md="4"
+          lg="4"
+          md="6"
           sm="6"
           xs="12"
           cols="12"
@@ -175,26 +159,18 @@
                 hover ? `elevation-5 transition-swing` : `mt-3 transition-swing`
               "
             >
-              <v-card-text
-                style="overflow-wrap: anywhere"
-                class="d-flex"
-              >
-                <v-icon
-                  v-if="proj.link"
-                  :color="hover ? `text` : ``"
-                  large
-                >mdi-open-in-new</v-icon>
+              <v-card-text style="overflow-wrap: anywhere" class="d-flex">
+                <v-icon v-if="proj.link" :color="hover ? `text` : ``" large
+                  >mdi-open-in-new</v-icon
+                >
                 <div v-else>
-                  <v-icon
-                    :color="hover ? `text` : ``"
-                    large
-                  >mdi-book-outline</v-icon>
+                  <v-icon :color="hover ? `text` : ``" large
+                    >mdi-book-outline</v-icon
+                  >
 
-                  <v-icon
-                    v-if="proj.github"
-                    :color="hover ? `text` : ``"
-                    large
-                  >mdi-github</v-icon>
+                  <v-icon v-if="proj.github" :color="hover ? `text` : ``" large
+                    >mdi-github</v-icon
+                  >
                 </div>
 
                 <h2
@@ -211,11 +187,26 @@
                 :style="
                   hover ? `color: ${$vuetify.theme.themes.dark.text}` : ''
                 "
-              >{{ proj.text }}</v-card-text>
+                >{{ proj.text }}</v-card-text
+              >
             </v-card>
           </v-hover>
         </v-col>
       </v-row>
+    </section>
+
+    <section id="contact" class="pt-16 text-center pb-16">
+      <h1 style="font-size: 3em">Keep In Touch</h1>
+      <v-btn
+        width="300"
+        height="100"
+        outlined
+        solo
+        class="mt-4"
+        color="text"
+        @click="emailMe()"
+        >Email Me<br />gem.somoso@icloud.com</v-btn
+      >
     </section>
 
     <v-fab-transition>
@@ -250,26 +241,20 @@
         <v-card-title
           :style="`position: absolute; top:0;width: 100%; background-color: ${$vuetify.theme.themes.dark.secondary}`"
           class="elevation-2"
-        >{{ selectedProject.name }} <v-spacer></v-spacer>
-          <v-btn
-            @click="open = false"
-            text
-          >
+          >{{ selectedProject.name }} <v-spacer></v-spacer>
+          <v-btn @click="open = false" text>
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-card-title>
-        <v-container
-          class="pt-16"
-          style="height: 100%; overflow-y: scroll"
-        >
-          <v-card-text>Tools Used<br />
-            <span
-              v-for="(item, i) in selectedProject.tools"
-              v-bind:key="i"
-            >
+        <v-container class="pt-16" style="height: 100%; overflow-y: scroll">
+          <v-card-text
+            >Tools Used<br />
+            <span v-for="(item, i) in selectedProject.tools" v-bind:key="i">
               {{ item
               }}<span v-if="i < selectedProject.tools.length - 1">
-                -</span></span>
+                -</span
+              ></span
+            >
           </v-card-text>
           <div
             v-if="selectedProject.github"
@@ -278,10 +263,7 @@
             style="cursor: pointer"
           >
             <v-icon>mdi-github</v-icon>
-            <b
-              style="font-size: 12px; color: white"
-              class="ml-2"
-            >{{
+            <b style="font-size: 12px; color: white" class="ml-2">{{
               selectedProject.github
             }}</b>
             ←
@@ -289,34 +271,24 @@
           </div>
           <v-card-text>{{ selectedProject.paragraph1 }}</v-card-text>
           <v-row v-if="selectedProject.mobile_asset1">
-            <v-col
-              lg="2"
-              md="2"
-              sm="2"
-              cols="12"
-              class="text-center"
-            ><video
+            <v-col lg="2" md="2" sm="2" cols="12" class="text-center"
+              ><video
                 id="mobile_asset1"
                 :width="isMobile() ? `60%` : `auto`"
-                :height="isMobile() ? `auto` : `200px`"
+                :height="isMobile() ? `auto` : `400px`"
                 autoplay
                 muted
                 loop
-                :class="!isMobile() ? `ml-6` : ``"
+                :class="!isMobile() ? `ml-4` : ``"
               >
                 <source
                   :src="selectedProject.mobile_asset1.src"
                   :type="`video/${selectedProject.mobile_asset1.type}`"
-                />
-              </video></v-col>
+                /></video
+            ></v-col>
 
-            <v-col
-              lg="10"
-              md="10"
-              sm="10"
-              cols="12"
-            >
-              <v-card-text>{{
+            <v-col lg="10" md="10" sm="10" cols="12">
+              <v-card-text style="max-width: 600px" class="ml-4">{{
                 selectedProject.paragraph_mobile
               }}</v-card-text>
             </v-col>
@@ -349,12 +321,7 @@
 
           <div v-if="selectedProject.image1">
             <v-row>
-              <v-col
-                cols="12"
-                lg="6"
-                md="6"
-                sm="12"
-              >
+              <v-col cols="12" lg="6" md="6" sm="12">
                 <v-img
                   v-if="selectedProject.image1"
                   :src="selectedProject.image1.src"
@@ -362,12 +329,7 @@
                   :class="!isMobile() ? `ml-6` : ``"
                 ></v-img>
               </v-col>
-              <v-col
-                cols="12"
-                lg="6"
-                md="6"
-                sm="12"
-              >
+              <v-col cols="12" lg="6" md="6" sm="12">
                 <v-img
                   v-if="selectedProject.image2"
                   :src="selectedProject.image2.src"
@@ -395,19 +357,12 @@
             />
           </video>
 
-          <a
-            class="link"
-            :href="`${selectedProject.link}`"
-            target="_blank"
-          >
+          <a class="link" :href="`${selectedProject.link}`" target="_blank">
             <v-card-text
               v-if="selectedProject.link"
               :style="`color: ${$vuetify.theme.themes.dark.accent2}`"
             >
-              <v-icon
-                size="20"
-                color="accent2"
-              >mdi-open-in-new </v-icon>
+              <v-icon size="20" color="accent2">mdi-open-in-new </v-icon>
               {{ selectedProject.link }}
             </v-card-text>
           </a>
@@ -432,11 +387,11 @@ export default {
         name: "Farms Chicken",
         text: "An Ecommerce application built for one of the biggest meat supplier in Christchurch. We also integrated their old SQL based application and also Reckon for Invoicing.",
         paragraph1:
-          "Initially the project was only to build a simple ecommerce website so registered customer could order online in their own time. Itis a solution to slow ordering before by calling or with email.",
+          "This project is an e-commerce website that was made to place orders in a more efficient and effortless way for registered costumers, instead of ordering via phone or email.",
         paragraph2:
-          "An internal software is used to process orders to the production building. They also use Reckon for invoicing.",
+          "An internal software is used to process orders to the production site and also utilises Reckon system for its invoicing.",
         paragraph3:
-          "We use a containerised node server (with docker) running in the same server machine that reckon and production software. The node server is the main API for the integration. ",
+          "The main API for integration is a docker-containerised node server,  which is run in the same server machine with reckon system and production software.",
         asset1: {
           src: "https://georgesomoso-portfolio-assets.s3.ap-southeast-2.amazonaws.com/farms_chicken/ecommerce.mp4",
           type: "mp4",
@@ -457,11 +412,11 @@ export default {
         name: "Guardex",
         text: "A Web and Mobile system for managing security sites, guards and producing reports and timesheet.",
         paragraph1:
-          "Guardex is a full security guard management system where employers can manage, schedule & dispatch guards straight from the web. It also can track guards live location while on a Job. Create alam and incident reports and send them automatically to clients and many more features.",
+          "Guardex is a full security guard management system where employers can manage, schedule & dispatch guards through the app. Features include a tracker that  helps supervisors/ managers locate guards who are deployed throughout the area. It creates alarm and incident reports which send it automatically to clients.",
         paragraph_mobile:
           "The guards are able to clock in and out, create reports, view schedule and get automatic notifications about their security identification expiry dates. The guards uses PWA or native android application. The main difference between the two application is that native app could send live location even when the app is on the background or the phone screen is off. ",
         paragraph2:
-          "The backend is run in a linux machine apache server with a node server for our main API. The front end uses vue for web and capacitor to make it a native app.",
+          "The backend node server for our main API runs in a docker container in a linux machine. The front-end uses Vue for web and capacitor to convert into a native app.",
         paragraph3: "",
         mobile_asset1: {
           src: "https://georgesomoso-portfolio-assets.s3.ap-southeast-2.amazonaws.com/guardex/guardex_mobile.webm",
@@ -486,11 +441,11 @@ export default {
         name: "CanIT System",
         text: "A full ticketing, tracking and invoicing system full of features to autonomate hardware repair information.",
         paragraph1:
-          "CanIT System was first created when I started working at CanIt. It was a solution that replaced paper documents to get customer information when fixing their devices.",
+          "CanIT System was first developed to acquire costumer information when fixing their devices. This was to increase efficiency and prevent errors as paper documents are replaced.",
         paragraph2:
           "The first version was a simple ticketing system to get all customer and device details made with PHP, HTML, CSS, JS and ajax. ",
         paragraph3:
-          "Later on we did remake, added more features like stock management, reporting and invoicing. It can also be installed as a seamless PWA mobile application. The front-end we used Vue and Amazon Web Services for the backend.",
+          "It was then further developed by adding more features such as stock management, reporting and invoicing. It can also be installed as a seamless PWA mobile application. Vue was used for the front end, and Amazon Web Services for the backend.",
         asset1: {
           src: "https://georgesomoso-portfolio-assets.s3.ap-southeast-2.amazonaws.com/canit/canit_system.webm",
           type: "webm",
@@ -529,9 +484,9 @@ export default {
     noteworthy_projects: [
       {
         name: "Portfolio",
-        text: "An online portforlio I made using Vuejs. You are currently viewing my portfolio right now if you didn't notice.",
+        text: "An online portforlio made using Vuejs. You are currently viewing my portfolio right now.",
         paragraph1:
-          "An online portforlio I made using Vuejs. It is free to use for everyone. Click the github button to view the github repository.",
+          "An online portforlio made using Vuejs. It is free to use for everyone. Click the github button to view the github repository.",
         tools: ["Vuejs", "S3 Bucket (Hosting)"],
         github: "https://github.com/draggem/portfoliovue",
       },
@@ -539,7 +494,7 @@ export default {
         name: "OCA Payroll",
         text: "This project was one of many projects in the tertiary education that I went to. I included these type of projects because I learned many things from it.",
         paragraph1:
-          "The project a windows form that can be run in a java environment or compiled as an executable file. The project is heavily Object-oriented therefore the use of classes, inheritance, encapsulation etc. (The source code is more impressive than how the UI looks)",
+          "The project a windows form that can be run in a java environment or compiled as an executable file. The project is heavily Object-oriented therefore the use of classes, inheritance, encapsulation etc. ",
         image1: {
           src: "https://georgesomoso-portfolio-assets.s3.ap-southeast-2.amazonaws.com/oca/OCA_Payroll.png",
         },
@@ -551,9 +506,9 @@ export default {
       },
       {
         name: "Ufly",
-        text: "Another project using Java. ",
+        text: "Another project using Java.",
         paragraph1:
-          "This project focuses more on streams, wrappers and file data source.",
+          "Another project using Java. This project focuses more on streams, wrappers and file data source.",
         tools: ["Java", "SQL"],
         image1: {
           src: "https://georgesomoso-portfolio-assets.s3.ap-southeast-2.amazonaws.com/ufly/home_screen_ufly.png",
@@ -567,7 +522,7 @@ export default {
         name: "Calculator",
         text: "Everyone in the industry have coded a calculator.",
         paragraph1:
-          "Its not a fancy looking calculator and there might be other better calculator made with java but this one does its job. It also have standard or scientific modes.",
+          "An easy to use calculator that is made with Java which includes a standard and scientific modes.",
         tools: ["Java", "SQL"],
         image1: {
           src: "https://georgesomoso-portfolio-assets.s3.ap-southeast-2.amazonaws.com/calc/java_calculator.png",
@@ -583,6 +538,9 @@ export default {
     }, 2100);
   },
   methods: {
+    emailMe() {
+      window.open("mailto:gem.somoso@icloud.com");
+    },
     video(url) {
       console.log(url);
       return require(url);
